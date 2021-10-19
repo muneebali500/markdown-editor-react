@@ -21,7 +21,7 @@ function App() {
       <header className="header">Markdown Editor</header>
       <main className="main">
         <section className="divider">
-          <h1 className="head2">Editor</h1>
+          <h2 className="head2">Editor</h2>
           <textarea
             onChange={handleChange}
             className="editor"
@@ -30,10 +30,8 @@ function App() {
           ></textarea>
         </section>
         <section className="divider">
-          <h1 className="head2">Result</h1>
-          <article className="result">
-            <ReactMarkdown>{markdown}</ReactMarkdown>
-          </article>
+          <h2 className="head2">Result</h2>
+          <ReactMarkdown className="result">{markdown}</ReactMarkdown>
         </section>
       </main>
     </>
