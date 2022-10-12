@@ -10,17 +10,18 @@
   box-shadow: 0rem 5px 5px var(--color-shaodw);
   color: #fff;
   padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 3px;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }
 
 .main {
   display: flex;
   gap: 20px;
+  position: relative;
 }
 
 .divider {
-  min-height: 76vh;
+  height: calc(100vh - 160px);
   width: 50%;
 }
 
@@ -33,21 +34,54 @@
   color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
   box-shadow: 0 5px 5px var(--color-shaodw);
+  pointer-events: none;
 }
 
 .editor,
 .result {
   border: 2px solid var(--color-primary);
-  min-height: 100%;
-  padding: 10px;
+  height: 100%;
+  padding: 5px 10px;
   width: 100%;
   border-radius: 5px;
   box-shadow: 0 5px 5px var(--color-shaodw);
+  overflow-y: auto;
+  background-color: #fff;
 }
 
 .editor {
   resize: none;
   outline: none;
+  cursor: auto;
+}
+
+:is(.editor, .result)::-webkit-scrollbar {
+  width: 8px;
+}
+
+:is(.editor, .result)::-webkit-scrollbar-track {
+  background: var(--color-primary);
+}
+
+:is(.editor, .result)::-webkit-scrollbar-thumb {
+  background: #f3f3f3;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 950px) {
+  .head2 {
+    pointer-events: all;
+    cursor: pointer;
+  }
+
+  .divider {
+    width: 100%;
+  }
+
+  .divider :is(textarea, .result) {
+    position: absolute;
+    left: 0;
+  }
 }
 
 /*-------------------------- Markdown Result Styling ------------------------------- */
@@ -83,5 +117,10 @@ h6,
 p,
 ul,
 ol {
-  margin: 10px 0;
+  margin: 8px 0;
+}
+
+img {
+  height: 20rem;
+  width: 100%;
 }
